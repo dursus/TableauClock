@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html, body {
+    margin: 0; height: 100%; overflow: hidden;
+    background: #F7F7F7;              /* match the bezel color */
+  }
+  body {
+    display: flex; align-items: center; justify-content: center;
+  }
+  #clock {
+    font-family: -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    color: #000;
+    font-size: 70vh;                  /* scales with the container height */
+    line-height: 1;
+  }
+</style>
+</head>
+<body>
+<div id="clock"></div>
+<script>
+  function tick() {
+    const now = new Date();
+    let h = now.getHours() % 12 || 12;
+    const m = String(now.getMinutes()).padStart(2, "0");
+    document.getElementById("clock").textContent = h + ":" + m;
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>
